@@ -1,6 +1,6 @@
 from tkinter import *
 import math
-# ---------------------------- CONSTANTS ------------------------------- #
+
 PINK = "#e2979c"
 RED = "#e7305b"
 GREEN = "#9bdeac"
@@ -15,8 +15,6 @@ timer = None
 WORK_REPS = [1, 3, 5, 7]
 BREAK_REPS = [2, 4, 6]
 
-# ---------------------------- TIMER RESET ------------------------------- #
-
 def reset_timer():
     global timer, check_string, reps
     window.after_cancel(timer)
@@ -25,9 +23,6 @@ def reset_timer():
     check_mark_label.config(text=check_string)
     heading_label.config(text="Timer", fg=GREEN)
     canvas.itemconfig(timer_text, text="00:00")
-
-
-# ---------------------------- TIMER MECHANISM ------------------------------- #
 
 def start_timer():
     global reps
@@ -44,8 +39,6 @@ def start_timer():
     else:
         count_down(long_break_sec)
         heading_label.config(text="Break", fg=RED)
-
-# ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 
 def count_down(count):
     global check_string
@@ -66,8 +59,6 @@ def count_down(count):
                 check_mark_label.config(text=check_string)
             start_timer()
 
-
-# ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
 window.title("Pomodoro")
